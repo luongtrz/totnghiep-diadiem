@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hướng dẫn gửi xe &amp; đường đi · ĐH Khoa học Tự nhiên (227 Nguyễn Văn Cừ, Q.5)</title>
+  <meta name="description" content="Hướng dẫn chi tiết đường đi, ảnh chụp Google Maps, lưu ý đường 1 chiều và các điểm gửi xe máy, ô tô quanh Trường ĐH Khoa học Tự nhiên (HCMUS) cơ sở 1 — 227 Nguyễn Văn Cừ.">
+  <meta name="theme-color" content="#0f2b5b">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-badges">
+        <span class="pill pill--brand">HCMUS · Cơ sở 1 (Quận 5)</span>
+        <span class="pill pill--accent">Cẩm nang đường đi &amp; gửi xe tốt nghiệp</span>
+      </div>
+
+      <h1 class="hero-title">Hướng dẫn đường đi &amp; gửi xe<br><span>ĐH Khoa học Tự nhiên (227 NVC)</span></h1>
+      <p class="hero-subtitle">
+        Dành cho người thân và bạn bè <strong>lần đầu tới cơ sở 227 Nguyễn Văn Cừ</strong>. Khuôn viên trường có bãi xe máy nhỏ (dễ kín chỗ ngày Lễ tốt nghiệp) và <strong>không nhận ô tô</strong> — xem ngay ảnh Google Maps đánh dấu lối đi và 6 bãi giữ xe sát bên chỉ 1–5 phút đi bộ.
+      </p>
+
+      <div class="destination-bar">
+        <div class="destination-info">
+          <span class="destination-label">Đích đến chính (Cơ sở 1 · KHÔNG phải Linh Trung, Thủ Đức)</span>
+          <strong class="destination-address">227 Nguyễn Văn Cừ, P. Chợ Quán (P.4, Q.5 cũ), TP.HCM</strong>
+        </div>
+        <div class="destination-actions">
+          <button type="button" class="btn btn--ghost" id="btn-copy-dest" data-copy="227 Nguyễn Văn Cừ, Phường Chợ Quán, Quận 5, TP. Hồ Chí Minh">
+            Sao chép địa chỉ
+          </button>
+          <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&query=10.7626203,106.6820152" target="_blank" rel="noopener noreferrer">
+            Mở Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="alerts-stack">
+        <div class="alert-banner" role="note">
+          <span class="alert-icon" aria-hidden="true">!</span>
+          <p>
+            <strong>Cảnh báo nhầm số nhà 235:</strong> Cả <strong>TTTM Nowzone</strong> (phía Quận 1) và <strong>THPT Chuyên Lê Hồng Phong</strong> (phía Quận 5) đều mang số <strong>235 Nguyễn Văn Cừ</strong> nhưng nằm ở <strong>hai bên đối diện nhau</strong> của đường Nguyễn Văn Cừ.
+          </p>
+        </div>
+        <div class="alert-banner alert-banner--info" role="note">
+          <span class="alert-icon alert-icon--info" aria-hidden="true">i</span>
+          <p>
+            <strong>Cảnh báo đường 1 chiều quanh trường:</strong> Đường <strong>An Dương Vương</strong> (trước cổng ĐH Sư phạm &amp; ĐH Sài Gòn) là <strong>đường 1 chiều</strong> đi từ Lê Hồng Phong ra Nguyễn Văn Cừ. Không rẽ phải ngược chiều từ Nguyễn Văn Cừ vào An Dương Vương.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="subnav" aria-label="Điều hướng nhanh">
+    <div class="container subnav-inner">
+      <a href="#gmap-photos">Ảnh Google Maps</a>
+      <a href="#walk-guide">Cách đi từng bước</a>
+      <a href="#interactive-map">Bản đồ tương tác</a>
+      <a href="#spots-list">6 điểm gửi xe</a>
+      <a href="#traffic-tips">Đường 1 chiều &amp; Lưu ý</a>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+    <section class="quick-pick" aria-labelledby="quick-pick-heading">
+      <div class="section-head">
+        <h2 id="quick-pick-heading">Chọn nhanh theo phương tiện</h2>
+        <p>Gợi ý thực tế cho người mới tới lần đầu để không mất thời gian vòng xe quanh Ngã sáu Cộng Hòa.</p>
+      </div>
+      <div class="quick-grid" id="quick-grid"></div>
+    </section>
+
+    <section class="gallery-section" id="gmap-photos" aria-labelledby="gallery-heading">
+      <div class="section-head">
+        <h2 id="gallery-heading">Ảnh chụp Google Maps đánh dấu trực quan</h2>
+        <p>Xem trước vị trí cổng trường, bãi xe, mốc nhận diện (Hotel Nikko, Texas Chicken) và đường đi bộ thực tế. Chạm vào ảnh để phóng to.</p>
+      </div>
+
+      <div class="tab-bar" role="tablist" aria-label="Chọn góc nhìn ảnh Google Maps" id="photo-tabs"></div>
+
+      <div class="photo-viewer">
+        <button type="button" class="photo-frame" id="photo-trigger" aria-label="Phóng to ảnh bản đồ">
+          <img id="active-photo-img" src="assets/gmap-closeup-routes.jpg" alt="Ảnh chụp Google Maps lộ trình đi bộ từ bãi xe vào cổng ĐH KHTN 227 Nguyễn Văn Cừ">
+          <span class="photo-zoom-hint">Chạm để phóng to toàn màn hình</span>
+        </button>
+        <div class="photo-caption">
+          <strong id="active-photo-title"></strong>
+          <p id="active-photo-desc"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="walk-section" id="walk-guide" aria-labelledby="walk-heading">
+      <div class="section-head">
+        <h2 id="walk-heading">Hướng dẫn chi tiết từng bước cho người mới tới</h2>
+        <p>Chọn bãi xe bạn định gửi (hoặc đi xe công nghệ) để xem chính xác cách chạy vào bãi và đi bộ tới cổng ĐH KHTN.</p>
+      </div>
+
+      <div class="tab-bar" role="tablist" aria-label="Chọn hướng dẫn đi bộ" id="route-tabs"></div>
+      <div class="route-panel" id="route-panel"></div>
+    </section>
+
+    <section class="map-section" id="interactive-map" aria-labelledby="map-heading">
+      <div class="section-head section-head--row">
+        <div>
+          <h2 id="map-heading">Bản đồ tương tác (zoom &amp; chạm trực tiếp)</h2>
+          <p>Chạm vào từng điểm đánh số để xem khoảng cách, loại xe nhận gửi và mở điều hướng Google Maps.</p>
+        </div>
+        <button type="button" class="btn btn--sm btn--outline" id="btn-reset-map">
+          Xem toàn bộ khu vực
+        </button>
+      </div>
+
+      <div class="map-shell">
+        <div id="parking-map" class="parking-map" role="region" aria-label="Bản đồ tương tác các điểm gửi xe quanh ĐH Khoa học Tự nhiên 227 Nguyễn Văn Cừ"></div>
+        <div class="map-legend" aria-label="Chú thích bản đồ">
+          <span><i class="dot dot--hcmus"></i> ĐH KHTN (Đích đến)</span>
+          <span><i class="dot dot--best"></i> Khuyên dùng (Xe máy &amp; Ô tô)</span>
+          <span><i class="dot dot--moto"></i> Bãi xe máy lân cận</span>
+          <span><i class="dot dot--alt"></i> Dự phòng / Bãi ngoài</span>
+          <span><i class="legend-line"></i> Lộ trình đi bộ gợi ý</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="spots-section" id="spots-list" aria-labelledby="spots-heading">
+      <div class="section-head">
+        <h2 id="spots-heading">Chi tiết 6 điểm gửi xe quanh 227 Nguyễn Văn Cừ</h2>
+        <p>Tổng hợp khoảng cách đi bộ thực tế, loại xe, giờ mở cửa, chi phí tham khảo và lưu ý riêng từng điểm.</p>
+      </div>
+
+      <div class="filter-bar" role="tablist" aria-label="Lọc bãi giữ xe">
+        <button type="button" class="filter-chip is-active" data-filter="all" role="tab" aria-selected="true">Tất cả</button>
+        <button type="button" class="filter-chip" data-filter="recommended" role="tab" aria-selected="false">Khuyên dùng</button>
+        <button type="button" class="filter-chip" data-filter="motorbike" role="tab" aria-selected="false">Xe máy</button>
+        <button type="button" class="filter-chip" data-filter="car" role="tab" aria-selected="false">Ô tô</button>
+        <button type="button" class="filter-chip" data-filter="closest" role="tab" aria-selected="false">Gần nhất (&le; 200m)</button>
+      </div>
+
+      <p class="filter-summary" id="filter-summary" aria-live="polite"></p>
+
+      <div class="spots-grid" id="spots-grid"></div>
+    </section>
+
+    <section class="tips-section" id="traffic-tips" aria-labelledby="tips-heading">
+      <div class="section-head">
+        <h2 id="tips-heading">Lưu ý đường 1 chiều &amp; kinh nghiệm ngày Lễ tốt nghiệp</h2>
+        <p>Đọc nhanh trước khi xuất phát để tránh đi nhầm đường hoặc bị kẹt xe quanh Ngã sáu Cộng Hòa.</p>
+      </div>
+      <div class="tips-grid" id="tips-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>
+        <strong>Hướng dẫn gửi xe &amp; đường đi · ĐH Khoa học Tự nhiên (227 Nguyễn Văn Cừ)</strong><br>
+        <span>Ảnh bản đồ ghi nhận từ Google Maps, tọa độ định vị theo OpenStreetMap. Giá gửi xe và quy định mở cổng ngày lễ có thể thay đổi theo thông báo thực tế của từng đơn vị.</span>
+      </p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Phóng to ảnh bản đồ">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Đóng ảnh">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+    <p class="lightbox-cap" id="lightbox-cap"></p>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
