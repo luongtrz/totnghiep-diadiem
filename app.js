@@ -285,7 +285,9 @@
 
   function fitAllMarkers() {
     if (!map || typeof L === 'undefined') return;
-    var coords = DATA.spots.map(function (s) { return [s.lat, s.lng]; });
+    var coords = [[DATA.destination.lat, DATA.destination.lng]].concat(
+      DATA.spots.map(function (s) { return [s.lat, s.lng]; })
+    );
     map.fitBounds(coords, { padding: [36, 36], maxZoom: 16 });
   }
 
@@ -327,6 +329,23 @@
         }).addTo(map);
       });
     }
+
+    var destIcon = L.divIcon({
+      className: 'custom-pin-wrapper',
+      html: '<div class="custom-pin custom-pin--hcmus"><span>★</span></div>',
+      iconSize: [30, 30],
+      iconAnchor: [15, 30],
+      popupAnchor: [0, -28]
+    });
+
+    var destMarker = L.marker([dest.lat, dest.lng], { icon: destIcon, zIndexOffset: 500 })
+      .addTo(map)
+      .bindPopup(
+        '<p class="popup-title">Đích đến: ' + escapeHtml(dest.name) + '</p>' +
+        '<p class="popup-meta">' + escapeHtml(dest.address) + '<br><em>Không nhận gửi xe trong trường ngày lễ</em></p>' +
+        '<a class="popup-link" href="' + escapeHtml(dest.mapsUrl) + '" target="_blank" rel="noopener noreferrer">Mở Google Maps cổng trường &rarr;</a>'
+      );
+    markersById['destination'] = destMarker;
 
     DATA.spots.forEach(function (spot) {
       var icon = L.divIcon({
@@ -406,6 +425,15 @@
       var focusSpotBtn = e.target.closest('[data-focus-spot]');
       if (focusSpotBtn) {
         var spotId = focusSpotBtn.getAttribute('data-focus-spot');
+        if (spotId === 'destination') {
+          var mapEl = document.getElementById('parking-map');
+          if (mapEl) mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (map && markersById['destination']) {
+            map.flyTo([DATA.destination.lat, DATA.destination.lng], 17, { duration: 0.6 });
+            markersById['destination'].openPopup();
+          }
+          return;
+        }
         highlightCard(spotId, true);
         if (map && markersById[spotId]) {
           var spot = DATA.spots.find(function (s) { return s.id === spotId; });

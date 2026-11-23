@@ -10,19 +10,22 @@ Trang web tĩnh (mobile-first) hướng dẫn chi tiết cách di chuyển, trá
 ### Ảnh vệ tinh thực tế khu vực cổng trường & bãi xe
 ![Ảnh vệ tinh thực tế 227 Nguyễn Văn Cừ](assets/gmap-satellite.jpg)
 
-### Bản đồ tổng quan 6 bãi gửi xe & chiều đường 1 chiều
+### Bản đồ tổng quan 5 bãi gửi xe & chiều đường 1 chiều
 ![Bản đồ tổng quan khu vực 227 Nguyễn Văn Cừ](assets/gmap-overview.jpg)
 
-## Tóm tắt nhanh các điểm gửi xe
+## Tóm tắt nhanh 5 điểm gửi xe bên ngoài (không gửi trong trường KHTN)
 
 | # | Địa điểm | Khoảng cách | Loại xe | Ghi chú |
 |---|---|---|---|---|
 | 1 | **TTTM Nowzone** (`235 Nguyễn Văn Cừ, Q.1`) | ~200m (2–3 phút) | Xe máy (B1) & Ô tô (B2) | **Khuyên dùng #1**, hầm rộng, mát, mở đến 22:00 |
 | 2 | **ĐH Sư phạm TP.HCM** (`280 An Dương Vương, Q.5`) | ~120m (1–2 phút) | Xe máy | Gần nhất, giá sinh viên (đi đúng chiều 1 chiều ADV) |
-| 3 | **Nội bộ ĐH KHTN** (`227 Nguyễn Văn Cừ, Q.5`) | 0m | Chỉ xe máy | Nhỏ, dễ đầy ngày lễ; **không nhận ô tô** |
-| 4 | **THPT Chuyên Lê Hồng Phong** (`235 Nguyễn Văn Cừ, Q.5`) | ~140m (2 phút) | Xe máy | Cùng vỉa hè, chỉ gửi được tùy quy định mở cổng |
-| 5 | **ĐH Sài Gòn** (`273 An Dương Vương, Q.5`) | ~330m (4–5 phút) | Xe máy | Dự phòng rộng rãi (đi đúng chiều 1 chiều ADV) |
-| 6 | **Bãi xe tư nhân trục Lê Hồng Phong** | ~300m (4–5 phút) | Xe máy & Ô tô | Dự phòng ngày đêm, nhớ hỏi kỹ giá trước |
+| 3 | **THPT Chuyên Lê Hồng Phong** (`235 Nguyễn Văn Cừ, Q.5`) | ~140m (2 phút) | Xe máy | Cùng vỉa hè, chỉ gửi được tùy quy định mở cổng |
+| 4 | **ĐH Sài Gòn** (`273 An Dương Vương, Q.5`) | ~330m (4–5 phút) | Xe máy | Dự phòng rộng rãi (đi đúng chiều 1 chiều ADV) |
+| 5 | **Bãi xe tư nhân trục Lê Hồng Phong** | ~300m (4–5 phút) | Xe máy & Ô tô | Dự phòng ngày đêm, nhớ hỏi kỹ giá trước |
+
+## Ảnh infographic khổ lớn (gửi Zalo / Messenger)
+- `huong-dan-gui-xe-doc.png` (`1620 × 2880 px` — khổ dọc cho điện thoại)
+- `huong-dan-gui-xe-ngang.png` (`2400 × 1440 px` — khổ ngang cho máy tính / in ấn)
 
 ## Lưu ý quan trọng cho người mới tới
 1. **Không chọn nhầm cơ sở:** Gõ đúng `227 Nguyễn Văn Cừ, Quận 5` (Cơ sở 1), tránh nhầm Cơ sở 2 Linh Trung (TP. Thủ Đức).

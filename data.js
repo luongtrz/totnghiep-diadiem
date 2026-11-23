@@ -28,16 +28,16 @@ window.PARKING_DATA = {
       id: 'overview',
       tabLabel: 'Bản đồ tổng quan khu vực',
       src: 'assets/gmap-overview.jpg',
-      title: 'Tổng quan 6 điểm gửi xe & chiều lưu thông quanh Ngã sáu Cộng Hòa',
-      desc: 'Hiển thị đầy đủ 6 lựa chọn gửi xe trong bán kính 350m quanh 227 Nguyễn Văn Cừ cùng nhắc nhở đường An Dương Vương chạy 1 chiều hướng từ Lê Hồng Phong ra Nguyễn Văn Cừ.'
+      title: 'Tổng quan 5 điểm gửi xe & chiều lưu thông quanh Ngã sáu Cộng Hòa',
+      desc: 'Hiển thị đầy đủ 5 lựa chọn gửi xe bên ngoài trong bán kính 350m quanh 227 Nguyễn Văn Cừ cùng nhắc nhở đường An Dương Vương chạy 1 chiều hướng từ Lê Hồng Phong ra Nguyễn Văn Cừ.'
     }
   ],
 
   quickPicks: [
     {
-      badge: 'Đi xe máy (dịp lễ đông)',
-      title: 'Hỏi cổng KHTN → đầy thì qua Nowzone hoặc ĐH Sư phạm',
-      desc: 'Bãi xe máy trong trường KHTN khá nhỏ và dễ kín chỗ vào ngày lễ. Nếu bảo vệ báo hết chỗ, gửi thẳng hầm B1 TTTM Nowzone (~200m) hoặc gửi bên ĐH Sư phạm (280 An Dương Vương, ~120m) rồi đi bộ 2 phút.',
+      badge: 'Đi xe máy',
+      title: 'Gửi tại Hầm B1 Nowzone hoặc ĐH Sư phạm (280 ADV)',
+      desc: 'Trường ĐH KHTN không nhận gửi xe bên trong ngày Lễ tốt nghiệp. Gửi ngay hầm B1 TTTM Nowzone (~200m, luôn rộng) hoặc bên ĐH Sư phạm (280 An Dương Vương, ~120m) rồi đi bộ 2 phút.',
       targetSpotId: 'nowzone',
       cta: 'Xem bãi Nowzone'
     },
@@ -52,8 +52,8 @@ window.PARKING_DATA = {
       badge: 'Nhàn nhất cho người mới tới',
       title: 'Đặt Grab / Be / Xanh SM thẳng cổng 227 NVC',
       desc: 'Đỡ lo kẹt Ngã sáu Cộng Hòa, đường 1 chiều hay tìm chỗ gửi xe. Khi đặt xe nhớ chọn đúng "227 Nguyễn Văn Cừ, Quận 5" (tránh chọn nhầm Cơ sở 2 Linh Trung, Thủ Đức).',
-      targetSpotId: 'hcmus',
-      cta: 'Định vị cổng KHTN'
+      targetSpotId: 'destination',
+      cta: 'Xem cổng KHTN trên bản đồ'
     }
   ],
 
@@ -108,7 +108,7 @@ window.PARKING_DATA = {
     },
     {
       id: 'from-lhp',
-      tabLabel: '#4 Từ THPT Chuyên LHP',
+      tabLabel: '#3 Từ THPT Chuyên LHP',
       badge: 'Cùng vỉa hè · Không qua đường · ~140m (2 phút)',
       summary: 'Nằm ngay sát bên ĐH KHTN trên cùng một bên đường, nhưng chỉ gửi được khi trường có mở nhận xe ngoài.',
       steps: [
@@ -130,7 +130,7 @@ window.PARKING_DATA = {
     },
     {
       id: 'from-sgu',
-      tabLabel: '#5 Từ ĐH Sài Gòn (273 ADV)',
+      tabLabel: '#4 Từ ĐH Sài Gòn (273 ADV)',
       badge: 'Dự phòng xe máy · ~330m (4–5 phút)',
       summary: 'Lựa chọn dự phòng rộng rãi cho xe máy khi cả KHTN và ĐH Sư phạm đều hết chỗ.',
       steps: [
@@ -249,32 +249,8 @@ window.PARKING_DATA = {
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=10.7619457,106.6817971'
     },
     {
-      id: 'hcmus',
-      order: 3,
-      name: 'Bãi giữ xe nội bộ ĐH Khoa học Tự nhiên',
-      shortLabel: 'Bãi trong KHTN',
-      category: 'hcmus',
-      badge: 'Trong trường · Dễ đầy',
-      recommended: false,
-      vehicles: ['motorbike'],
-      vehicleLabels: ['Chỉ xe máy (Không nhận ô tô)'],
-      covered: true,
-      address: '227 Nguyễn Văn Cừ, P. Chợ Quán (P.4, Q.5 cũ), TP.HCM',
-      distanceMeters: 0,
-      walkTime: 'Ngay trong trường',
-      hours: 'Khoảng 05:00 – 23:00 (tùy thông báo ngày lễ)',
-      priceNote: 'Phí giữ xe máy nội bộ (ưu tiên sinh viên/viên chức; ngày lễ có thể giới hạn lượt khách vào).',
-      pros: [
-        'Tiện nhất nếu còn chỗ: gửi xong đi thẳng ra sân trường chụp ảnh & vào hội trường.'
-      ],
-      notes: 'Khuôn viên nhỏ nên vào ngày Lễ tốt nghiệp bãi xe máy rất dễ quá tải hoặc chỉ ưu tiên tân khoa/cán bộ. Không có chỗ gửi ô tô — nếu đi ô tô vui lòng chạy thẳng sang Nowzone.',
-      lat: 10.7626203,
-      lng: 106.6820152,
-      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=10.7626203,106.6820152'
-    },
-    {
       id: 'lhp',
-      order: 4,
+      order: 3,
       name: 'Khu vực THPT Chuyên Lê Hồng Phong',
       shortLabel: 'THPT Chuyên LHP',
       category: 'moto',
@@ -298,7 +274,7 @@ window.PARKING_DATA = {
     },
     {
       id: 'sgu',
-      order: 5,
+      order: 4,
       name: 'Trường ĐH Sài Gòn (Cơ sở chính)',
       shortLabel: 'ĐH Sài Gòn (273 ADV)',
       category: 'moto',
@@ -314,7 +290,7 @@ window.PARKING_DATA = {
       priceNote: 'Mức giá giữ xe máy sinh viên (tham khảo ~4.000đ – 5.000đ/lượt).',
       pros: [
         'Khuôn viên rộng, dễ tìm trên trục đường An Dương Vương ngay gần ngã tư Nguyễn Văn Cừ.',
-        'Phương án dự phòng tốt cho xe máy nếu cả KHTN lẫn ĐH Sư phạm đều hết chỗ.'
+        'Phương án dự phòng tốt cho xe máy nếu ĐH Sư phạm hết chỗ.'
       ],
       notes: 'Đi theo đúng chiều 1 chiều An Dương Vương từ Lê Hồng Phong → Nguyễn Văn Cừ. Nên hỏi giờ đóng cổng bãi xe nếu ở lại ăn trưa hoặc chụp ảnh muộn.',
       lat: 10.7597031,
@@ -323,7 +299,7 @@ window.PARKING_DATA = {
     },
     {
       id: 'lhp-street',
-      order: 6,
+      order: 5,
       name: 'Các bãi giữ xe tư nhân trục Lê Hồng Phong',
       shortLabel: 'Bãi tư nhân Lê Hồng Phong',
       category: 'alt',
